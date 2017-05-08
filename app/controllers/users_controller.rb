@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   def me
-    id = session[:user]['id']
-    @user = User.find(id)
+    if (session[:user])
+      id = session[:user]['id']
+      @user = User.find(id)
+    else
+      redirect_to('/login') and return
+    end
   end
 
   def me_edit
