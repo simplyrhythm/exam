@@ -12,6 +12,7 @@
 <% end %>
 
 <form action="/contacts" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <div>Name: <%= text_field_tag('contact[name]', @contact.name) %></div>
   <div>Email: <%= text_field_tag('contact[email]', @contact.email) %></div>
   <div>Message: <%= text_area_tag('contact[message]', @contact.message) %></div>

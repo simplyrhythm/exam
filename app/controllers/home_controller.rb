@@ -7,7 +7,7 @@ class HomeController < ApplicationController
                  {name: "Edit Profile", link: "/users/me/edit"},
                  {name: "Logout", link: "/logout"})
     else 
-      @page.push({name: "Register form", link: "/register"},
+      @page.push({name: "Register form", link: "users/register"},
                  {name: "Login form", link: "/login"})
     end
   end

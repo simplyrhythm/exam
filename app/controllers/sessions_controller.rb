@@ -14,7 +14,6 @@ class SessionsController < ApplicationController
         name: user.name,
         last_logined_at: DateTime.now
       }
-      flash[:user_id] = user.id
       redirect_to('/users/me') and return
     else
       flash.now.alert = "Invalid email or password"
