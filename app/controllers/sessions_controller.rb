@@ -22,6 +22,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def delete
+    session[:user] = nil
+    redirect_to('/') and return
+  end
+
   private
   def permit_create_params
     params.permit([:email, :password])
