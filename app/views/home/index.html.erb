@@ -1,10 +1,7 @@
 <h1>Home</h1>
 
 <ol>
-  <li><a href="/contacts">Contact form</a></li>
-  <li><a href="/users/register">Register form</a></li>
-  <li><a href="/login">Login form</a></li>
-  <li><a href="/users/me">Profile</a></li>
-  <li><a href="/users/me/edit">Edit Profile</a></li>
-  <li><a href="/logout">Logout</a></li>
+  <% @page.each do |p| %>
+    <li><%= link_to p[:name], p[:link] %></li>
+  <% end %>
 </ol>
