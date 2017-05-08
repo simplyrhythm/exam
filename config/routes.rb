@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'register' => 'register#index'
     get 'register/thanks' => 'register#thanks'
     post 'register' => 'register#create'
+    resources :users
   end
 
   get 'contacts' => 'contacts#new'
