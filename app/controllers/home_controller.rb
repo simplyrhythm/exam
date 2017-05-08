@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @home = true
     @page = [{name: "Contact form", link: "/contacts"}]
     if session[:user]
       @page.push({name: "Profile", link: "/users/me"},
