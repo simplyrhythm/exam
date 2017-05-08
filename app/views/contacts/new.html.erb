@@ -1,0 +1,19 @@
+<h1>Contact form</h1>
+
+<% if @contact.errors.full_messages.present? %>
+<div class="errors">
+  <h2>Have some errors!!</h2>
+  <ul>
+    <% @contact.errors.full_messages.each do |m| %>
+    <li class="error"><%= m %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<form action="/contacts" method="post">
+  <div>Name: <%= text_field_tag('contact[name]', @contact.name) %></div>
+  <div>Email: <%= text_field_tag('contact[email]', @contact.email) %></div>
+  <div>Message: <%= text_area_tag('contact[message]', @contact.message) %></div>
+  <div><%= submit_tag('Submit') %></div>
+</form>
