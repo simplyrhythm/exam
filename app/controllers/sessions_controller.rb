@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
 
   def delete
     session[:user] = nil
+    flash.clear
     redirect_to('/') and return
   end
 
