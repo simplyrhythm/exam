@@ -1,3 +1,20 @@
 <h1>Login form</h1>
 
-<p>Please implement login by email, password also login form html.</p>
+<%#<p>Please implement login by email, password also login form html.</p>%>
+<% if flash.present? %>
+<div class="errors">
+  <h2>Have some errors!!</h2>
+  <ul>
+    <% flash.each do |name, msg| %>
+        <%= content_tag :li, msg, :id => "flash#{name}" %>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= form_tag login_path remote: true do %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  Email: <%= email_field_tag :email %><br/>
+  Password: <%= password_field_tag :password %><br/>
+  <%= submit_tag('Log in') %>
+<% end %>

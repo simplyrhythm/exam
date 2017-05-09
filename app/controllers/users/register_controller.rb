@@ -20,7 +20,7 @@ class Users::RegisterController < ApplicationController
     case e
     when ActiveRecord::RecordInvalid
       @user = e.record
-      render action: :new and return
+      render action: :index and return
     end
   end
 

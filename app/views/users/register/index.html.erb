@@ -1,6 +1,18 @@
 <h1>Register form</h1>
 
+<% if @user.errors.full_messages.present? %>
+<div class="errors">
+  <h2>Have some errors!!</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |m| %>
+    <li class="error"><%= m %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <%= form_for @user, url: users_register_path, remote: true do |f| %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   Name: <%= f.text_field :name %><br/>
   Email: <%= f.email_field :email %><br/>
   Password: <%= f.password_field :password %><br/>
